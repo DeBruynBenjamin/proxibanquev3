@@ -5,6 +5,7 @@ import fr.proxibanque.proxibanquev3.dao.VirementDao;
 import fr.proxibanque.proxibanquev3.domaine.Compte;
 import fr.proxibanque.proxibanquev3.domaine.CompteCourant;
 import fr.proxibanque.proxibanquev3.domaine.Virement;
+import fr.proxibanque.proxibanquev3.service.exceptions.ExceptionVirement;
 
 /**
  * @author adminl

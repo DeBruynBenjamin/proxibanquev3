@@ -16,7 +16,8 @@ import fr.proxibanque.proxibanquev3.domaine.Compte;
 import fr.proxibanque.proxibanquev3.domaine.Conseiller;
 import fr.proxibanque.proxibanquev3.domaine.Virement;
 import fr.proxibanque.proxibanquev3.service.CompteService;
-import fr.proxibanque.proxibanquev3.service.ExceptionVirement;
+import fr.proxibanque.proxibanquev3.service.Logging;
+import fr.proxibanque.proxibanquev3.service.exceptions.ExceptionVirement;
 import fr.proxibanque.proxibanquev3.service.VirementService;
 
 /**
@@ -113,6 +114,7 @@ public class ViremtServlet extends HttpServlet {
 				try {
 					// On realise le virement via la couche service 
 					vS.realiserVirement(virement);
+					Logging.getInstance().genererLog(virement);
 					maSession.setAttribute("validvirement", "Le virement a bien été pris en compte.");
 					//préparer en fonction la réponse à envoyer
 					dispatcher =request.getRequestDispatcher("accueil.jsp");
